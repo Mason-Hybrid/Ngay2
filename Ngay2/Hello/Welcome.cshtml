@@ -1,0 +1,7 @@
+﻿<h2>Welcome , @ViewData["Message"]!</h2>
+<p>You visited this page @ViewBag.NumTimes TIMES</p>
+
+@for (int i = 0; i < (int)ViewBag.NumTimes ; i++)
+{
+    <p> @ViewData["Message"]</p>
+}
