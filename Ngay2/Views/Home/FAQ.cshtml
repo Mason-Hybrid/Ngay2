@@ -1,0 +1,53 @@
+@{
+    ViewData["Title"] = "FAQ";
+}
+
+<h1>@ViewData["Title"]</h1>
+<p>Đây là trang FAQ - sử dụng <strong>Conventional Routing</strong>.</p>
+<p>Trang này có thể truy cập qua:</p>
+<ul>
+    <li><code>/Home/FAQ</code> - theo default conventional route</li>
+    <li><code>/faq</code> - theo custom conventional route</li>
+</ul>
+
+<h3>Câu hỏi thường gặp</h3>
+<div class="accordion" id="faqAccordion">
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                Component View là gì?
+            </button>
+        </h2>
+        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                Component View (View Component) là một thành phần giao diện có logic riêng, gồm 2 phần: class C# và view Razor. 
+                Nó giống như một "mini controller" cho một phần giao diện.
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                Partial View khác gì Component View?
+            </button>
+        </h2>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                Partial View chỉ là một phần giao diện (không có logic riêng), còn Component View có cả logic (class C#) lẫn giao diện (view).
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                Conventional Routing vs Attribute Routing?
+            </button>
+        </h2>
+        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                <strong>Conventional Routing</strong>: Định nghĩa trong Program.cs, URL map theo pattern chung.<br/>
+                <strong>Attribute Routing</strong>: Dùng [Route] attribute trên controller/action, kiểm soát URL chính xác hơn.
+            </div>
+        </div>
+    </div>
+</div>

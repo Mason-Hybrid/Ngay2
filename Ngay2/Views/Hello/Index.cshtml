@@ -1,0 +1,21 @@
+@{
+    ViewData["Title"] = "Hello Index";
+}
+
+<div class="p-4 mb-4 bg-light rounded-3 border">
+    <div class="container-fluid py-3">
+        <h1 class="display-5 fw-bold text-primary">HelloController - Attribute Routing</h1>
+        <p class="col-md-8 fs-5">
+            Trang này được điều hướng thông qua <strong>Attribute Routing</strong> với attribute:
+            <code>[Route("[controller]")]</code> và <code>[Route("")]</code> / <code>[Route("Index")]</code>.
+        </p>
+        <div class="mt-3">
+            <a class="btn btn-primary" asp-controller="Hello" asp-action="Welcome" asp-route-name="Mason" asp-route-numTimes="3">
+                Thử Welcome với Name="Mason", numTimes=3
+            </a>
+            <a class="btn btn-outline-secondary ms-2" href="/gioi-thieu">
+                Thử Attribute Route Custom (/gioi-thieu)
+            </a>
+        </div>
+    </div>
+</div>

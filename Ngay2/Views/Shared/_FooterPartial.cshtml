@@ -1,0 +1,12 @@
+@* PARTIAL VIEW: Đây là Partial View cho phần footer *@
+@* Partial View dùng để chia nhỏ giao diện thành các phần nhỏ, dễ tái sử dụng *@
+@* Khác với View Component, Partial View không có logic riêng (không có class C#) *@
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <span>&copy; @DateTime.Now.Year - Ngay2 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></span>
+            <span class="text-muted">Bài thực hành buổi 2 - ASP.NET Core MVC</span>
+        </div>
+    </div>
+</footer>

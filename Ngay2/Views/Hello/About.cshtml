@@ -1,0 +1,16 @@
+@{
+    ViewData["Title"] = "Giới thiệu";
+}
+
+<div class="card shadow-sm p-4 my-3">
+    <h2 class="text-info">@ViewData["Title"]</h2>
+    <p class="lead">@ViewData["Message"]</p>
+    <div class="alert alert-warning">
+        <strong>Attribute Routing:</strong> Action này được cấu hình với 2 URL routes:
+        <ul>
+            <li><code>/Hello/About</code></li>
+            <li><code>/gioi-thieu</code> (route tùy biến độc lập)</li>
+        </ul>
+    </div>
+    <a class="btn btn-primary" asp-controller="Home" asp-action="Index">Về trang chủ</a>
+</div>

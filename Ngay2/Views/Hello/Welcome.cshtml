@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Welcome";
+}
+
+<div class="card shadow-sm p-4 my-3">
+    <h2 class="text-success">Welcome, @ViewData["Message"]!</h2>
+    <p class="lead">Bạn đang xem trang được điều hướng bằng <strong>Attribute Routing</strong>: <code>[Route("Welcome/{name?}/{numTimes:int?}")]</code></p>
+    <p>Số lần lặp được truyền qua tham số route / query: <span class="badge bg-primary fs-6">@ViewData["NumTimes"]</span></p>
+
+    <div class="alert alert-info mt-3">
+        @for (int i = 0; i < (int)(ViewData["NumTimes"] ?? 1); i++)
+        {
+            <div class="py-1">
+                <i class="bi bi-check-circle"></i> <strong>Lần @(i + 1):</strong> @ViewData["Message"]
+            </div>
+        }
+    </div>
+
+    <div class="mt-3">
+        <a class="btn btn-outline-primary" asp-controller="Hello" asp-action="Index">Quay lại Hello Index</a>
+        <a class="btn btn-outline-secondary" asp-controller="Home" asp-action="Index">Về trang chủ</a>
+    </div>
+</div>

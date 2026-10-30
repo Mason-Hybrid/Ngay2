@@ -1,8 +1,97 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Trang Chủ - Bài Thực Hành Buổi 2";
 }
 
-<div class="text-center">
-    <h1 class="display-4">I wanna tell you something </h1>
-    <p><a href="https://learn.microsoft.com/aspnet/core"> I'm trying to master Web apps with ASP.NET Core</a>.</p>
+<div class="text-center py-4">
+    <h1 class="display-5 fw-bold text-primary">ASP.NET Core MVC - Bài Thực Hành Buổi 2</h1>
+    <p class="fs-5 text-muted">Ứng dụng minh họa 4 kỹ thuật cốt lõi trong ASP.NET Core MVC</p>
+</div>
+
+<div class="row g-4 py-3">
+    <!-- 1. Component View -->
+    <div class="col-md-6">
+        <div class="card h-100 shadow-sm border-primary">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">1. Component View (View Component)</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>Khái niệm:</strong> View Component là một thành phần giao diện độc lập có logic C# riêng (như một mini-controller), không cần phụ thuộc controller cha.</p>
+                <p><strong>Áp dụng trong project:</strong></p>
+                <ul>
+                    <li>Code logic: <code>ViewComponents/NavigationMenuViewComponent.cs</code></li>
+                    <li>Giao diện Razor: <code>Views/Shared/Components/NavigationMenu/Default.cshtml</code></li>
+                    <li>Gọi trong <code>_Layout.cshtml</code> bằng: <code>@@await Component.InvokeAsync("NavigationMenu")</code></li>
+                </ul>
+                <div class="alert alert-secondary">
+                    Thanh menu điều hướng trên đầu trang chính là View Component đang hoạt động.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Partial View -->
+    <div class="col-md-6">
+        <div class="card h-100 shadow-sm border-success">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">2. Partial View</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>Khái niệm:</strong> Partial View là một file view Razor nhỏ dùng để tái sử dụng giao diện, không chứa logic C# riêng biệt mà nhận dữ liệu trực tiếp từ view cha.</p>
+                <p><strong>Áp dụng trong project:</strong></p>
+                <ul>
+                    <li>File view: <code>Views/Shared/_FooterPartial.cshtml</code></li>
+                    <li>Gọi trong <code>_Layout.cshtml</code> bằng Tag Helper: <code>&lt;partial name="_FooterPartial" /&gt;</code></li>
+                </ul>
+                <div class="alert alert-secondary">
+                    Phần Footer dưới cùng trang chính là Partial View được nhúng vào.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Conventional Routing -->
+    <div class="col-md-6">
+        <div class="card h-100 shadow-sm border-warning">
+            <div class="card-header bg-warning text-dark">
+                <h5 class="mb-0">3. Conventional Routing</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>Khái niệm:</strong> Định tuyến dựa trên quy ước (convention) được cấu hình tập trung trong <code>Program.cs</code> theo mẫu <code>{controller}/{action}/{id?}</code>.</p>
+                <p><strong>Áp dụng trong project:</strong></p>
+                <ul>
+                    <li>Default Route: <code>{controller=Home}/{action=Index}/{id?}</code></li>
+                    <li>Custom Route Blog: <code>/blog</code> &rarr; Map về <code>Home/Blog</code></li>
+                    <li>Custom Route FAQ: <code>/faq</code> &rarr; Map về <code>Home/FAQ</code></li>
+                </ul>
+                <div>
+                    <a class="btn btn-sm btn-outline-warning text-dark" href="/blog">Truy cập /blog</a>
+                    <a class="btn btn-sm btn-outline-warning text-dark" href="/faq">Truy cập /faq</a>
+                    <a class="btn btn-sm btn-outline-secondary" asp-controller="Home" asp-action="Privacy">Truy cập /Home/Privacy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Attribute Routing -->
+    <div class="col-md-6">
+        <div class="card h-100 shadow-sm border-info">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0">4. Attribute Routing</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>Khái niệm:</strong> Định tuyến trực tiếp bằng các attribute <code>[Route(...)]</code> đặt ngay trên Controller và Action, cho phép kiểm soát URL chi tiết, truyền tham số và ràng buộc kiểu dữ liệu.</p>
+                <p><strong>Áp dụng trong project:</strong></p>
+                <ul>
+                    <li>Controller: <code>Controllers/HelloController.cs</code> với <code>[Route("[controller]")]</code></li>
+                    <li>Action: <code>[Route("Welcome/{name?}/{numTimes:int?}")]</code></li>
+                    <li>Custom URL: <code>[Route("/gioi-thieu")]</code></li>
+                </ul>
+                <div>
+                    <a class="btn btn-sm btn-info text-white" href="/Hello">Vào /Hello</a>
+                    <a class="btn btn-sm btn-outline-info" href="/Hello/Welcome/World/3">Vào /Hello/Welcome/World/3</a>
+                    <a class="btn btn-sm btn-outline-info" href="/gioi-thieu">Vào /gioi-thieu</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,0 +1,20 @@
+@* VIEW COMPONENT: Đây là View của NavigationMenuViewComponent *@
+@* Component View giúp tách logic ra khỏi layout, dễ tái sử dụng *@
+@model List<string>
+
+<ul class="navbar-nav flex-grow-1">
+    @foreach (var item in Model)
+    {
+        <li class="nav-item">
+            @if (item == "Welcome")
+            {
+                <a class="nav-link text-dark" asp-controller="Hello" asp-action="Welcome"
+                   asp-route-name="World" asp-route-numTimes="3">@item</a>
+            }
+            else
+            {
+                <a class="nav-link text-dark" asp-controller="Home" asp-action="@item">@item</a>
+            }
+        </li>
+    }
+</ul>
